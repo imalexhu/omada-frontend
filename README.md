@@ -1,2 +1,2 @@
 # omada-frontend
-UNI-Hack2022
+Omada Frontend. Connect, Learn, and Build with Omada.
