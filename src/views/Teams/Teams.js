@@ -3,7 +3,7 @@ import React from "react";
 import { Box } from "@chakra-ui/react";
 
 const Teams = () => {
-    return <Box>Teams</Box>;
+    return <Box>Test</Box>;
 }
 
 export default Teams;
