@@ -7,6 +7,7 @@ import {
 
 import { Header } from "./components/Layout";
 import { CreateTeam } from "./views";
+import UserProfile from "./views/userProfile"
 
 function App() {
 	return (
@@ -15,9 +16,10 @@ function App() {
 			<Routes>
 				<Route path="/" element={null} />
 				<Route path="/createteam" element={<CreateTeam />} />
+				<Route path='/userProfile' element={<UserProfile />} />
 			</Routes>
 		</Router>
 	);
 }
 
-export default App;
+export default App
