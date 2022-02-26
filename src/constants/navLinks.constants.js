@@ -1,8 +1,8 @@
 const navLinks = {
     defaultLinks: [
         {
-			name: "Join a Team",
-			to: "/teams",
+			name: "Create a Team",
+			to: "/createteam",
 		},
         {
             name: "About",
