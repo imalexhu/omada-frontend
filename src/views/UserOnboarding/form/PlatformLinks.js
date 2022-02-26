@@ -1,6 +1,8 @@
 import React from "react";
 import platforms from "../../../stubbedData";
 import { Box, Center, HStack, Icon, Link } from "@chakra-ui/react";
+import DynamicIcon from "../../../components/DynamicIcon/DynamicIcon";
+import { getByRole } from "@testing-library/react";
 
 const PlatformLinks = () => {
   return (
@@ -17,8 +19,12 @@ const PlatformLinks = () => {
           {Object.keys(platforms).map(function (p, index) {
             if (!platforms[p].inviteLink) return;
             return (
-              <Link href={platforms[p].inviteLink}>
-                <Icon as={platforms[p].icon} w={10} h={10} mr={5} />
+              <Link href={platforms[p].url} isExternal>
+                <DynamicIcon
+                  iconName={platforms[p].icon}
+                  size={40}
+                  color={"black"}
+                />
               </Link>
             );
           })}

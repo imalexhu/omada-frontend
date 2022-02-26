@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, HStack, Input } from "@chakra-ui/react";
+import { Box, HStack, Input, Button } from "@chakra-ui/react";
 
 const Email = () => {
   return (
@@ -18,6 +18,9 @@ const Email = () => {
       <HStack w="100%" spacing={2}>
         <Input p={3} placeholder="Email" size="lg" bg="white" rounded="full" />
       </HStack>
+      <Button colorScheme="messenger" size="lg" p={5}>
+        Submit
+      </Button>
     </React.Fragment>
   );
 };
