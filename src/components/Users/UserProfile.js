@@ -121,13 +121,14 @@ const users = [
 ]
 
 const UserProfile = ({ user }) => {
+  console.log(user);
   const [image, setImage] = useState("");
   const [projects, setProjects] = useState([]);
-  const githubId = user.platformAccounts.find(pa => pa.platform == "Github");
+  const githubId = user.platformAccounts.find(pa => pa.platform == "Github").url;
 
   const fetchUserImage = async () => {
-    const response = axios.get("https://api.github.com/users/" + githubId);
-    setImage(response.data)
+    const response = await axios.get("https://api.github.com/users/" + githubId);
+    setImage(response.data.avatar_url)
     return response.data.avatar_url
   }
   const getProjects = async () => {
@@ -178,8 +179,8 @@ const UserProfile = ({ user }) => {
             <Text>Project History: </Text>
             {projects.filter(p=>p.status != "INPROGRESS").map((p) => (
               <Tag colorScheme='red' key={p.projectId}>
-                <Link href={p.html_url} isExternal>
-                  {p.name + " @ " + p.pushed_at}
+                <Link>
+                  {p.name}
                 </Link>
               </Tag>
             ))}
