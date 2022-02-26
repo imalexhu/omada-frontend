@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { TeamName, TeamDescription } from "./form";
+import { TeamName, TeamDescription, ConnectPlatforms } from "./form";
 import { Flex, Container, VStack, HStack, IconButton } from "@chakra-ui/react";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
@@ -23,6 +23,7 @@ const CreateTeam = () => {
           <VStack h="10vh" spacing={6} mb={8}>
             {page === 1 && <TeamName page={page} setPage={setPage} />}
             {page === 2 && <TeamDescription page={page} setPage={setPage} />}
+            {page === 3 && <ConnectPlatforms page={page} setPage={setPage} />}
 
             <HStack pt={6} spacing={8}>
               <IconButton
