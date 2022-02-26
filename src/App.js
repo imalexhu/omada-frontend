@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={null} />
         <Route path="/createteam" element={<CreateTeam />} />
+        <Route path="/userProfile" element={<UserProfile />} />
         <Route path="/user_onboarding" element={<UserOnboarding />} />
       </Routes>
     </Router>

@@ -9,6 +9,10 @@ const navLinks = {
       to: "/about",
     },
     {
+      name: "Profile",
+      to: "/userProfile",
+    },
+    {
       name: "TEMP-ONBOARDING",
       to: "/user_onboarding",
     },

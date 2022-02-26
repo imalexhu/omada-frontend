@@ -1,6 +1,6 @@
 import React from "react";
-import { platforms } from "../../../../stubbedData";
-import { Box, HStack, Input } from "@chakra-ui/react";
+import platforms from "../../../stubbedData";
+import { Box, Center, HStack, Icon, Link } from "@chakra-ui/react";
 
 const PlatformLinks = () => {
   return (
@@ -10,20 +10,20 @@ const PlatformLinks = () => {
         fontWeight={400}
         color="gray.700"
       >
-        What's Your{" "}
-        <Box as="span" fontWeight={700} color="#0053CD">
-          User Name?
-        </Box>
+        Here are your invite links !
       </Box>
-      <HStack w="100%" spacing={2}>
-        <Input
-          p={3}
-          placeholder="User Name"
-          size="lg"
-          bg="white"
-          rounded="full"
-        />
-      </HStack>
+      <Center>
+        <HStack w="100%" spacing={2}>
+          {Object.keys(platforms).map(function (p, index) {
+            if (!platforms[p].inviteLink) return;
+            return (
+              <Link href={platforms[p].inviteLink}>
+                <Icon as={platforms[p].icon} w={10} h={10} mr={5} />
+              </Link>
+            );
+          })}
+        </HStack>
+      </Center>
     </React.Fragment>
   );
 };
