@@ -27,7 +27,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/createteam" element={<CreateTeam />} />
+        <Route path="/createteam" element={<CreateTeam user={user} />} />
         <Route path="/profile" element={<UserProfile user={user} />} />
         <Route path="/members" element={<Members />} />
         <Route path="/createurl" element={<CreateURL />} />

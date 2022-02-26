@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   TeamName,
@@ -18,8 +18,11 @@ import {
 } from "@chakra-ui/react";
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import axios from "axios";
 
-const CreateTeam = () => {
+const serverURL = `http://localhost:5000/`
+
+const CreateTeam = ({ user }) => {
   const [page, setPage] = useState(1);
   const [formData, setFormData] = useState({
     teamName: "",
@@ -55,6 +58,21 @@ const CreateTeam = () => {
 
     res[0]["link"] = link;
   };
+
+  const submit = async () => {
+    const project = {
+      name: formData.teamName,
+      description: formData.teamDescription,
+      creator: user._id,
+      platforms: formData.selectedIntegrations.map(si => ({
+        platform: si.name,
+        url: si.link,
+      })),
+      status: "INPROGRESS", // by default the user probs wants an active project
+      participants: [],
+    }
+    await axios.post(serverURL + "/create-project/" + user._id, project);
+  }
 
   return (
     <React.Fragment>
@@ -108,7 +126,7 @@ const CreateTeam = () => {
                 />
               )}
               {page === 5 && (
-                <Button colorScheme="messenger" size="lg" rounded="full">
+                <Button onClick={submit} colorScheme="messenger" size="lg" rounded="full">
                   Get Started
                 </Button>
               )}
