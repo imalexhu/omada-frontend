@@ -23,7 +23,7 @@ const TeamName = () => {
                     placeholder="Team Name"
                     size="lg"
                     bg="white"
-                    rounded="full"
+                    rounded="xl"
                 />
             </HStack>
         </React.Fragment>
