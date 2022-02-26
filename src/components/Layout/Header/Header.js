@@ -13,7 +13,7 @@ import {
 
 const Header = () => {
     return (
-        <Box w="100%" position={{ base: "none", md: "absolute" }} bg="white">
+        <Box w="100%" position="absolute" bg="white">
             <Container maxW="container.xl">
                 <Flex h={16} alignItems="center" justifyContent="space-between">
                     <HStack spacing={8}>

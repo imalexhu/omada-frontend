@@ -12,7 +12,7 @@ import UserProfile from "./views/userProfile"
 function App() {
 	return (
 		<Router>
-			<Header />
+			{/* <Header /> */}
 			<Routes>
 				<Route path="/" element={null} />
 				<Route path="/createteam" element={<CreateTeam />} />
