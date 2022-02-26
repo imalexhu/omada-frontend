@@ -8,7 +8,8 @@ import {
     Container,
     Flex,
     HStack,
-    Button
+    Button,
+    Heading
 } from "@chakra-ui/react";
 
 const Header = () => {
@@ -16,6 +17,9 @@ const Header = () => {
         <Box w="100%" position={{ base: "none", md: "absolute" }} bg="white">
             <Container maxW="container.xl">
                 <Flex h={16} alignItems="center" justifyContent="space-between">
+                    <HeaderLink toRoute="/" Key>
+                        <Heading color="blue.600">OMADA</Heading>
+                    </HeaderLink>
                     <HStack spacing={8}>
                         {navLinks.defaultLinks.map((item) => (
                             <HeaderLink key={item.to} toRoute={item.to}>{item.name}</HeaderLink>
