@@ -31,7 +31,7 @@ const ProjectCard = ({ title,
 	}
 	useEffect(() => getGithubUser(creator.githubID))
 	return (
-		<Box position="relative" borderRadius="3xl" boxShadow="0px 4px 10px rgba(0,0,0,0.15)" padding={4}>
+		<Box borderRadius="3xl" boxShadow="0px 4px 10px rgba(0,0,0,0.15)" padding={4}>
 			<Flex justifyContent="space-between" >
 				<Flex>
 					<Heading marginBottom={3}>{title}</Heading>
