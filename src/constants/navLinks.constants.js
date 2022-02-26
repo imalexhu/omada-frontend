@@ -7,7 +7,12 @@ const navLinks = {
         {
             name: "About",
             to: "/about"
+        },
+        {
+            name : "Profile",
+            to : "/userProfile"
         }
+
     ],
 };
 
