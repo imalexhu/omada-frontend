@@ -5,9 +5,10 @@ import { Header } from "./components/Layout";
 import UserProfile from "./components/Users/UserProfile";
 import { CreateTeam } from "./views";
 import Home from "./views/Home/Home";
-import Members from "./components/Users/Members";
 import CreateURL from "./views/CreateURL/CreateURL";
 import UserOnboarding from "./views/UserOnboarding/UserOnboarding";
+import TeamDashboard from "./views/TeamDashboard/TeamDashboard"
+import Members from "./components/Users/Members";
 import axios from "axios";
 
 const serverURL = `http://localhost:5000/`;
@@ -32,6 +33,7 @@ function App() {
         <Route path="/members" element={<Members />} />
         <Route path="/createurl" element={<CreateURL />} />
         <Route path="/user_onboarding" element={<UserOnboarding />} />
+        <Route path="/teamview" element={<TeamDashboard />} />
       </Routes>
     </Router>
   );

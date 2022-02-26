@@ -19,6 +19,7 @@ import {
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const serverURL = `http://localhost:5000/`
 
@@ -59,7 +60,7 @@ const CreateTeam = ({ user }) => {
     res[0]["link"] = link;
   };
 
-  const submit = async () => {
+  const submit = () => {
     const project = {
       name: formData.teamName,
       description: formData.teamDescription,
@@ -71,7 +72,12 @@ const CreateTeam = ({ user }) => {
       status: "INPROGRESS", // by default the user probs wants an active project
       participants: [],
     }
-    await axios.post(serverURL + "/create-project/" + user._id, project);
+    const uploadData = async () => {
+      // Uncomment this code when you want to test upload logic, but to prevent polution of data I'm disabling it
+      // await axios.post(serverURL + "/create-project/" + user._id, project);
+    }
+    uploadData();
+    return project;
   }
 
   return (
@@ -126,9 +132,11 @@ const CreateTeam = ({ user }) => {
                 />
               )}
               {page === 5 && (
-                <Button onClick={submit} colorScheme="messenger" size="lg" rounded="full">
-                  Get Started
-                </Button>
+                <Link to="/teamview" state={submit()}>
+                  <Button colorScheme="messenger" size="lg" rounded="full">
+                    Get Started
+                  </Button>
+                </Link>
               )}
             </HStack>
 

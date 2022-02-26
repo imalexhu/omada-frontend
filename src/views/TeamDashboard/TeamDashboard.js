@@ -15,9 +15,13 @@ import {
 	VStack
 } from "@chakra-ui/react";
 import ParticipantCard from "../../components/ParticipantCard/ParticipantCard";
+import { useLocation } from 'react-router-dom';
 import axios from "axios";
 
-const TeamDashboard = ({ project }) => {
+const TeamDashboard = () => {
+	const location = useLocation();
+	const project = location.state;
+	console.log(project);
 	return (
 		<Flex bg="whitesmoke" margin="0" height="100vh" alignItems="center" justifyContent="center">
 			<Flex justifyContent="space-between" padding="4" inlineSize="800px" blockSize="400px" 
@@ -25,16 +29,16 @@ const TeamDashboard = ({ project }) => {
 				<VStack alignItems="flex-start" justifyContent="space-between">
 					<Box>
 						<Flex marginBottom="3">
-							<Heading >{project.projectName}</Heading>
+							<Heading >{project.name}</Heading>
 							<Spacer w="3"/>
 							<Text color="gray" alignSelf="end">{project.projectStatus}</Text>
 						</Flex>
 						<Text>{project.description}</Text>
 					</Box>
 					<HStack>
-						{project.techUsed.map(t => (
+						{project.platforms.map(p => (
 							<Flex paddingBlock="2" paddingInline="4" borderRadius="2xl" boxShadow="0px 1px 3px rgba(0,0,0,0.15)">
-								<Text>{t.tech}</Text>
+								<Text>{p.platform}</Text>
 							</Flex>
 						))}
 					</HStack>
@@ -42,7 +46,9 @@ const TeamDashboard = ({ project }) => {
 				<Flex>
 					<Divider orientation="vertical" marginInline="4"/>
 					<Stack>
-						{project.participants.map(p => (
+						{project.participants.length == 0?
+						<Heading>No Users</Heading>:
+						project.participants.map(p => (
 							<ParticipantCard participant={p}/>
 						))}
 					</Stack>
