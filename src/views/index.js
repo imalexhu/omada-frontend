@@ -1,4 +1,3 @@
-// import { default as Teams } from "./Teams/Teams";
-import { default as CreateTeam } from "./CreateTeam/CreateTeam";
+import { default as Teams } from "./Teams/Teams";
 
-export { CreateTeam }
+export { Teams }
