@@ -5,17 +5,9 @@ const navLinks = {
       to: "/createteam",
     },
     {
-      name: "About",
-      to: "/about",
-    },
-    {
-      name: "Profile",
-      to: "/userProfile",
-    },
-    {
-      name: "TEMP-ONBOARDING",
+      name: "Join a Team",
       to: "/user_onboarding",
-    },
+    }
   ],
 };
 
