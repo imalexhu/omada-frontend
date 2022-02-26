@@ -14,6 +14,7 @@ import {
 	Divider,
 	Spacer,
 } from "@chakra-ui/react"
+import { Link } from "react-router-dom";
 
 const sampleUser = {
 	id: 0,
@@ -80,9 +81,11 @@ const Home = () => {
 						Create new project?
 					</Heading>
 					<Spacer h="20px"/>
-					<Button rounded="full" bg="blue.400" color="white" _hover={{bg: 'blue.500'}}>
-						Click Here
-					</Button>
+					<Link to="/createteam">
+						<Button rounded="full" bg="blue.400" color="white" _hover={{bg: 'blue.500'}}>
+							Click Here
+						</Button>
+					</Link>
 				</Stack>
 			</Flex>
 		</HStack>
