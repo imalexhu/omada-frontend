@@ -28,7 +28,7 @@ const ParticipantCard = ({ participant }) => {
 	return (
 		<Flex padding={4} borderRadius="2xl" boxShadow="0px 4px 3px rgba(0,0,0,0.15)">
 			<Image boxSize="50px" borderRadius="full" src={profile.avatar_url}/>
-			<Box margin="0px 0px 10px 10px">
+			<Box marginLeft="10px">
 					<Text fontWeight="bold" fontSize="17px">{participant.profileName}</Text>
 					<Text color="gray">{participant.roles.join(", ")}</Text>
 			</Box>
