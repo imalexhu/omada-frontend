@@ -1,32 +1,34 @@
 import React from "react";
+import FadeIn from "react-fade-in";
 
 import {
+    VStack,
     Box,
-    HStack,
     Input
 } from "@chakra-ui/react";
 
-const TeamName = () => {
+const TeamName = ({ handleFormData, values }) => {
     return (
-        <React.Fragment>
-            <Box
-                fontSize={{ base: "2xl", md: "3xl" }}
-                fontWeight={400}
-                color="gray.700"
-            >
-                What's Your{" "}
-                <Box as="span" fontWeight={700} color="#0053CD">Team Name?</Box>
-            </Box>
-            <HStack w="100%" spacing={2}>
+        <FadeIn>
+            <VStack w="100%" spacing={8} alignItems="center">
+                <Box
+                    w="100%"
+                    textAlign="center"
+                    fontSize={{ base: "2xl", md: "3xl" }}
+                    fontWeight={400}
+                    color="gray.700"
+                >
+                    What's Your{" "}
+                    <Box as="span" fontWeight={700} color="#0053CD">Team Name?</Box>
+                </Box>
                 <Input
-                    p={3}
+                    value={values["teamName"]}
                     placeholder="Team Name"
                     size="lg"
-                    bg="white"
-                    rounded="xl"
+                    onChange={handleFormData("teamName")}
                 />
-            </HStack>
-        </React.Fragment>
+            </VStack>
+        </FadeIn>
     );
 }
 

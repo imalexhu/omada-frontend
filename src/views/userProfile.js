@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 
 import {
   Container,
-  Image,
   Center,
   Heading,
   Text,
@@ -11,7 +10,6 @@ import {
   Tag,
 } from "@chakra-ui/react"
 
-import { Icon } from "@chakra-ui/react"
 import UserImage from "../components/userImage"
 
 const users = [
@@ -37,22 +35,16 @@ const users = [
   },
 ]
 
-const UserProfile = ({}) => {
-  const [id, setId] = useState(users[0].id)
-  const [githubId, setGithubid] = useState(users[0].githubId)
-  const [username, setUsername] = useState(users[0].username)
-  const [image, setImage] = useState(null)
-  const [career, setCareer] = useState(users[0].career)
-  const [company, setCompany] = useState(users[0].company)
-  const [currentProjectsCreated, setCurrentProjectsCreated] = useState(
-    users[0].currentProjectsCreated
-  )
-  const [projectHistory, setProjectHistory] = useState(users[0].projectHistory)
-  const [currentProjectsInvolved, setCurrentProjectsInvolved] = useState(
-    users[0].currentProjectsInvolved
-  )
-  const [bio, setBio] = useState(users[0].bio)
-  const [roles, setRoles] = useState(users[0].roles)
+const UserProfile = () => {
+  const [username] = useState(users[0].username)
+  const [image, setImage] = useState("")
+  const [career] = useState(users[0].career)
+  const [company] = useState(users[0].company)
+  const [currentProjectsCreated] = useState(users[0].currentProjectsCreated)
+  const [projectHistory] = useState(users[0].projectHistory)
+  const [currentProjectsInvolved] = useState(users[0].currentProjectsInvolved)
+  const [bio] = useState(users[0].bio)
+  const [roles] = useState(users[0].roles)
 
   const fetchUserImage = async (user) => {
     const url = "https://api.github.com/users/" + user.githubId
@@ -64,10 +56,10 @@ const UserProfile = ({}) => {
   }
 
   useEffect(() => {
-    if (!image) {
+    if (image === "") {
       fetchUserImage(users[0])
     }
-  }, [])
+  }, [image])
   return (
     <Container mt={4}>
       <UserImage pic={image} name={username} />

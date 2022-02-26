@@ -4,7 +4,12 @@ import DynamicIcon from "../../../components/DynamicIcon/DynamicIcon";
 import { Flex } from "@chakra-ui/react";
 import { darken } from "@chakra-ui/theme-tools";
 
-const PlatformItem = ({ children, icon }) => {
+const PlatformItem = ({
+    children,
+    icon,
+    handleAddToSelected,
+    ...rest
+}) => {
     const [isSelected, setIsSelected] = useState(false);
 
     return (
@@ -24,14 +29,16 @@ const PlatformItem = ({ children, icon }) => {
                 bg: "#CCDDF5",
                 borderColor: "#3375D7"
             }}
-            _active={{
-                bg: darken("#CCDDF5")
+            _active={{ bg: darken("#CCDDF5") }}
+            onClick={() => {
+                setIsSelected(!isSelected)
+                handleAddToSelected(children, icon)
             }}
-            onClick={() => setIsSelected(!isSelected)}
             transition="0.05s ease-in"
+            {...rest}
         >
             {children}
-            <DynamicIcon iconName={icon.toString()} size={22} color="#0053CD" />
+            <DynamicIcon iconName={icon} size={22} color="#0053CD" />
         </Flex>
     );
 }

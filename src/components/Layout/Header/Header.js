@@ -1,7 +1,8 @@
-import React from "react";
+import React from "react"
 
-import navLinks from "../../../constants/navLinks.constants";
+import navLinks from "../../../constants/navLinks.constants"
 
+<<<<<<< HEAD
 import HeaderLink from "./HeaderLink";
 import {
     Box,
@@ -32,6 +33,30 @@ const Header = () => {
             </Container>
         </Box>
     );
+=======
+import HeaderLink from "./HeaderLink"
+import { Box, Container, Flex, HStack, Button } from "@chakra-ui/react"
+
+const Header = () => {
+	return (
+		<Box w="100%" bg="white" position="absolute" >
+			<Container maxW='container.xl'>
+				<Flex h={16} alignItems='center' justifyContent='space-between'>
+					<HStack spacing={8}>
+						{navLinks.defaultLinks.map((item) => (
+							<HeaderLink key={item.to} toRoute={item.to}>
+								{item.name}
+							</HeaderLink>
+						))}
+					</HStack>
+					<HStack spacing={8}>
+						<Button colorScheme='messenger'>Connect with Discord</Button>
+					</HStack>
+				</Flex>
+			</Container>
+		</Box>
+	);
+>>>>>>> cf56435afbfedf3869503f6c35ba7e458b3ae50f
 }
 
-export default Header;
+export default Header
