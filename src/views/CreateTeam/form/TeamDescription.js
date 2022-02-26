@@ -14,7 +14,7 @@ const TeamDescription = () => {
                 fontWeight={400}
                 color="gray.700"
             >
-                Write a short{" "}
+                Write a Short{" "}
                 <Box as="span" fontWeight={700} color="#0053CD">Project Description.</Box>
             </Box>
             <HStack w="100%" spacing={2}>
