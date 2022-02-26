@@ -63,9 +63,9 @@ const users = [sampleUser]
 
 const Home = () => {
 	return (
-		<HStack h="100vh">
+		<HStack marginInline="400px" marginBlock="30px" h="100vh">
 			<Stack flex="2">
-				<Heading margin="10">Ongoing Projects</Heading>
+				<Heading marginLeft="40px">Ongoing Projects</Heading>
 				<ProjectCard title={sampleProject.projectName}
 					creator={sampleUser.profileName}
 					description={sampleProject.description}

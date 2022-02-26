@@ -14,12 +14,12 @@ import {
 
 const Header = () => {
     return (
-        <Box w="100%" position={{ base: "none", md: "absolute" }} bg="white">
+        <Box w="100%" bg="white">
             <Container maxW="container.xl">
                 <Flex h={16} alignItems="center" justifyContent="space-between">
-                    <HeaderLink toRoute="/" Key>
+                    {/* <HeaderLink toRoute="/" Key>
                         <Heading color="blue.600">OMADA</Heading>
-                    </HeaderLink>
+                    </HeaderLink> */}
                     <HStack spacing={8}>
                         {navLinks.defaultLinks.map((item) => (
                             <HeaderLink key={item.to} toRoute={item.to}>{item.name}</HeaderLink>
