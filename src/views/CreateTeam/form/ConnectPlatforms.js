@@ -21,7 +21,7 @@ const TeamName = ({ handleSelectedData }) => {
         }
 
         setSelected((prev) => (
-            [...prev, { name: name, icon: icon, value: "" }]
+            [...prev, { name: name, icon: icon, link: "" }]
         ))
     }
 

@@ -20,6 +20,7 @@ const TeamName = ({ handleFormData, values }) => {
                     <Box as="span" fontWeight={700} color="#0053CD">Project Description.</Box>
                 </Box>
                 <Textarea
+                    h={40}
                     value={values["teamDescription"]}
                     placeholder="Team Description"
                     size="lg"

@@ -38,9 +38,9 @@ const Review = ({ values }) => {
                             ))}    
                         </Box>
                         {values["selectedIntegrations"].map((item) => (
-                            <Box mb={3} fontSize="xl" fontWeight={700} key={item.value}>
+                            <Box mb={3} fontSize="xl" fontWeight={700} key={item.link}>
                                 {item.name} Link:{" "}
-                                <Link as="span" fontWeight={400}>{item.value}</Link>
+                                <Link as="span" fontWeight={400}>{item.link}</Link>
                             </Box>
                         ))}
                     </FadeIn>

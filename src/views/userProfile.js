@@ -10,7 +10,7 @@ import {
   Tag,
 } from "@chakra-ui/react"
 
-import UserImage from "../components/UserImage"
+import UserImage from "../components/userImage"
 
 const users = [
   {
