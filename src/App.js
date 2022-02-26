@@ -1,5 +1,9 @@
-import React from "react"
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import React from "react";
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes
+} from "react-router-dom";
 
 import { Header } from "./components/Layout";
 import { CreateTeam } from "./views";
@@ -16,4 +20,4 @@ function App() {
 	);
 }
 
-export default App
+export default App;
