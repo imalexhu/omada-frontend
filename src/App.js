@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 import { Header } from "./components/Layout"
 import UserProfile from "./views/userProfile"
-import { Teams } from "./views"
+import { CreateTeam } from "./views"
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={null} />
-        <Route path='/teams' element={<Teams />} />
+        {/* <Route path='/createteam' element={<CreateTeam />} /> */}
         <Route path='/profile' element={<UserProfile />} />
       </Routes>
     </Router>
