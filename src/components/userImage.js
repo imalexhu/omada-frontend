@@ -5,4 +5,4 @@ const UserImage = ({ pic, name }) => (
   <Image src={pic} alt={name} boxSize='200px' borderRadius='full' mx='auto' />
 )
 
-export default UserImage
+export default UserImage;

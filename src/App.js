@@ -1,13 +1,11 @@
 import React from "react";
-import {
-	BrowserRouter as Router,
-	Route,
-	Routes
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { Header } from "./components/Layout";
 import { CreateTeam } from "./views";
-import UserProfile from "./views/userProfile"
+import UserOnboarding from "./views/UserOnboarding/UserOnboarding";
+import UserProfile from "./views/userProfile";
+
 
 function App() {
 	return (
@@ -22,4 +20,4 @@ function App() {
 	);
 }
 
-export default App
+export default App;

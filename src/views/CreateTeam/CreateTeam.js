@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import {
     TeamName,
@@ -16,15 +16,16 @@ import {
     IconButton,
     Button
 } from "@chakra-ui/react";
+
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
 const CreateTeam = () => {
-    const [page, setPage] = useState(1);
-    const [formData, setFormData] = useState({
-        teamName: "",
-        teamDescription: "",
-        selectedIntegrations: []
-    });
+  const [page, setPage] = useState(1);
+  const [formData, setFormData] = useState({
+    teamName: "",
+    teamDescription: "",
+    selectedIntegrations: [],
+  });
 
     const nextForm = () => setPage((page) => page + 1);
     const prevForm = () => {
