@@ -14,7 +14,7 @@ import {
 import UserImage from "./UserImage"
 import axios from "axios";
 
-const serverURL = "localhost:3000/";
+const serverURL = "localhost:5000/";
 const bio = 'Arthur C Clarke said "Any sufficiently advanced technology is indistinguishable from magic" and that\'s how I feel about the technology I work with. I love machine learning. I am always looking for new projects and challenges to help me explore the field and grow in what I can do. I am fascinated by artificial intelligence and its applications that will enable so many people to reach their full potential.';
 
 const users = [
@@ -141,7 +141,7 @@ const UserProfile = ({ user }) => {
   useEffect(()=>{
     getProjects();
     fetchUserImage();
-  });
+  }, []);
 
   return (
     <Container mt={4}>
