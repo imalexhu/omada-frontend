@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import {
     TeamName,
-    TeamDescription
+    TeamDescription,
+    ConnectPlatforms
 } from "./form";
 import {
     Flex,
@@ -31,9 +32,16 @@ const CreateTeam = () => {
         <React.Fragment>
             <Flex h="100vh" bg="#F5F5F6" alignItems="center">
                 <Container maxW="container.md">
+<<<<<<< HEAD
                     <VStack h="10vh" spacing={6}>
                         {page === 1 && <TeamName />}
                         {page === 2 && <TeamDescription />}
+=======
+                    <VStack h="10vh" spacing={6} mb={8}>
+                        {page === 1 && <TeamName page={page} setPage={setPage} />}
+                        {page === 2 && <TeamDescription page={page} setPage={setPage} />}
+                        {page === 3 && <ConnectPlatforms page={page} setPage={setPage} />}
+>>>>>>> 85e1be7a4af25b40e6cd09d0b4826e1ec761d32d
 
                         <HStack pt={4} spacing={8}>
                             {page > 1 && 
