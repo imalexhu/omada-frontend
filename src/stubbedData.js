@@ -1,49 +1,48 @@
-import { FaDiscord, FaJira, FaGithub, FaSlack, FaMicrosoft, FaBitbucket, FaFigma, FaGoogle, FaTrello } from 'react-icons/fa';
-
-const platforms = {
-    JIRA: {
+const platforms = [
+    {
+        name: "Jira",
         url: "https://unihack.atlassian.net/jira/software/c/projects/UNI/boards/2",
         inviteLink: false,
-        icon: FaJira
+        icon: "FaJira"
     },
-
-    GITHUB: {
+    {
+        name: "GitHub",
         url: "https://discord.gg/HvfguBsu",
         inviteLink: false,
-        icon: FaGithub
+        icon: "FaGithub"
     },
-
-    DISCORD: {
+    {
+        name: "Discord",
         url: "https://discord.gg/HvfguBsu",
         inviteLink: true,
-        icon: FaDiscord
+        icon: "FaDiscord"
     },
-
-    SLACK: {
+    {
+        name: "Slack",
         url: "https://join.slack.com/t/slack-tgg5480/shared_invite/zt-14cx5m6ar-Rg~l9LxX~MJF7g5G8ZcBTA",
         inviteLink: true,
-        icon: FaSlack
+        icon: "FaSlack"
     },
-
-    MICROSOFT_TEAMS: {
-        icon: FaMicrosoft
+    {
+        name: "Microsoft Teams",
+        icon: "FaMicrosoft"
     },
-
-    BITBUCKET: {
-        icon: FaBitbucket
+    {
+        name: "Bitbucket",
+        icon: "FaBitbucket"
     },
-
-    FIGMA: {
-        icon: FaFigma
+    {
+        name: "Figma",
+        icon: "FaFigma"
     },
-
-    GOOGLE: {
-        icon: FaGoogle
+    {
+        name: "Google",
+        icon: "FaGoogle"
     },
-
-    TRELLO: {
-        icon: FaTrello
+    {
+        name: "Trello",
+        icon: "FaTrello"
     },
-}
+]
 
 export default platforms
