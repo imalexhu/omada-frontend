@@ -7,7 +7,7 @@ import { Box, Container, Flex, HStack, Button } from "@chakra-ui/react"
 
 const Header = () => {
 	return (
-		<Box bg='white'>
+		<Box w="100%" bg="white" position="absolute" >
 			<Container maxW='container.xl'>
 				<Flex h={16} alignItems='center' justifyContent='space-between'>
 					<HStack spacing={8}>

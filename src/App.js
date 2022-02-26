@@ -10,7 +10,7 @@ import CreateURL from "./views/CreateURL/CreateURL"
 function App() {
   return (
     <Router>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path='/' element={null} />
         <Route path='/createteam' element={<CreateTeam />} />

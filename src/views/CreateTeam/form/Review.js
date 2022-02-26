@@ -12,6 +12,8 @@ const Review = ({ values }) => {
         <FadeIn>
             <VStack w="100%" spacing={8} alignItems="center">
                 <Box
+                    w="100%"
+                    textAlign="center"
                     fontSize={{ base: "2xl", md: "3xl" }}
                     fontWeight={400}
                     color="gray.700"
@@ -21,15 +23,15 @@ const Review = ({ values }) => {
                 </Box>
                 <VStack w="100%" spacing={8} alignItems="flex-start">
                     <FadeIn>
-                        <Box mb={3} fontSize="xl" fontWeight={700}>
+                        <Box mb={3} fontSize="lg" fontWeight={700}>
                             Team Name:{" "}
                             <Box as="span" fontWeight={400}>{values["teamName"]}</Box>
                         </Box>
-                        <Box mb={3} fontSize="xl" fontWeight={700}>
+                        <Box mb={3} fontSize="lg" fontWeight={700}>
                             Team Description:{" "}
                             <Box as="span" fontWeight={400}>{values["teamDescription"]}</Box>
                         </Box>
-                        <Box mb={3} fontSize="xl" fontWeight={700}>
+                        <Box mb={3} fontSize="lg" fontWeight={700}>
                             Platform Integrations:{" "}                 
                             {values["selectedIntegrations"].map((item, index) => (
                                 <Box as="span" fontWeight={400} key={item.name}>
@@ -38,7 +40,7 @@ const Review = ({ values }) => {
                             ))}    
                         </Box>
                         {values["selectedIntegrations"].map((item) => (
-                            <Box mb={3} fontSize="xl" fontWeight={700} key={item.link}>
+                            <Box mb={3} fontSize="lg" fontWeight={700} key={item.link}>
                                 {item.name} Link:{" "}
                                 <Link as="span" fontWeight={400}>{item.link}</Link>
                             </Box>

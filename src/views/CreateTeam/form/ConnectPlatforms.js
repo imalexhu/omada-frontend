@@ -33,6 +33,8 @@ const TeamName = ({ handleSelectedData }) => {
         <FadeIn>
             <VStack w="100%" spacing={8} alignItems="center">
                 <Box
+                    w="100%"
+                    textAlign="center"
                     fontSize={{ base: "2xl", md: "3xl" }}
                     fontWeight={400}
                     color="gray.700"
@@ -40,7 +42,23 @@ const TeamName = ({ handleSelectedData }) => {
                     Select the Platforms You Wish to{" "}
                     <Box as="span" fontWeight={700} color="#0053CD">Integrate.</Box>
                 </Box>
-                <VStack w="100%" maxH="50%">
+                <VStack
+                    w="100%"
+                    h="400px"
+                    overflowY="scroll"
+                    sx={{
+                        "&::-webkit-scrollbar": {
+                            width: "4px"
+                        },
+                        ":-moz-any-link": {
+                            width: "6px"
+                        },
+                        "&::-webkit-scrollbar-thumb": {
+                            background: "gray.300",
+                            borderRadius: "24px"
+                        },
+                    }}     
+                >
                     <FadeIn>
                         {platforms.map((p) => (
                             <PlatformItem

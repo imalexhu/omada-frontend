@@ -14,6 +14,8 @@ const AddIntegrationLinks = ({ values, handleIntegrationLinks }) => {
         <FadeIn>
             <VStack w="100%" spacing={8} alignItems="center">
                 <Box
+                    w="100%"
+                    textAlign="center"
                     fontSize={{ base: "2xl", md: "3xl" }}
                     fontWeight={400}
                     color="gray.700"
