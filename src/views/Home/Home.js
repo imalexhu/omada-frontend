@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
@@ -15,64 +15,38 @@ import {
 	Spacer,
 } from "@chakra-ui/react"
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const sampleUser = {
-	id: 0,
-	profileName: "Che Kambouris",
-	discordId: "Chedsta#1010",
-	githubId: "CheKambouris",
-	projects: [0],
-	roles: ["backend", "frontend",]
-}
-const sampleProject = {
-	id: 0,
-	projectName: "Cool Project Name",
-	description: "Cool project description",
-	creatorID: 0,
-	discordLink: null,
-	githubRepo: null,
-	difficulty: null,
-	projectStatus: "In Progress",
-	participants: [
-		{
-			profileName: "Che Kambouris",
-			roles: ["Frontend"],
-			githubId: "CheKambouris",
-			discordId: "Chedsta#1234",
-			projectHistory: [{}],
-		}, {
-			profileName: "Alex Hu",
-			roles: ["Backend"],
-			githubId: "imalexhu",
-			discordId: "AlexHu#1234",
-			projectHistory: [{}],
-		}
-	],
-	techUsed: [
-		{
-			tech: "Github",
-			link: "https://github.com/imalexhu/omada-backend"
-		},
-		{
-			tech: "Discord",
-			link: "https://discord.gg/8EDvWcQk",
-		}
-	]
-}
-const projects = [sampleProject]
-const users = [sampleUser]
+const serverURL = `http://localhost:5000/`;
 
-const Home = () => {
+const Home = ({ user }) => {
+	const [projects, setProjects] = useState([]);
+	const getProjects = async () => {
+		let projects = [];
+		for (let id of user.currentProjectsInvolved) {
+			const response = await axios.get(serverURL + "get-project", { params: { id: id } })
+			projects = [...projects, response.data]
+		}
+		setProjects(projects);
+	}
+	useEffect(() => getProjects(), []);
+
 	return (
 		<HStack marginInline="400px" marginBlock="30px" h="100vh">
 			<Stack flex="2">
-				<Heading marginLeft="40px">Ongoing Projects</Heading>
-				<ProjectCard title={sampleProject.projectName}
-					creator={sampleUser.profileName}
-					description={sampleProject.description}
-					difficulty={sampleProject.difficulty}
-					availableRoles={[]}
-					techInUse={[]}/>
+				{
+				projects.length == 0?
+				<>
+					<Heading>No ongoing projects</Heading>
+					<Text>Make one instead. </Text>
+				</>:
+				<>
+					<Heading marginLeft="40px">Ongoing Projects</Heading>
+					{projects.map(p => (
+						<ProjectCard project={p}/>
+					))}
+				</>
+				}
 			</Stack>
 			<Divider orientation="vertical"/>
 			<Flex flex="1" align="center" justify="center">

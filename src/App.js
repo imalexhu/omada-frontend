@@ -27,7 +27,7 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home user={user}/>} />
         <Route path="/createteam" element={<CreateTeam user={user} />} />
         <Route path="/profile" element={<UserProfile user={user} />} />
         <Route path="/members" element={<Members />} />

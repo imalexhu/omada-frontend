@@ -8,6 +8,7 @@ import {
 	Spacer,
 	Text
 } from "@chakra-ui/react";
+import { useLocation } from "react-router";
 
 const difficultyColor = {
 	"Easy": "limegreen",
@@ -15,14 +16,15 @@ const difficultyColor = {
 	"Hard": "red",
 };
 
-const ProjectCard = ({
-	title,
-	creator,
-	description,
-	difficulty,
-	availableRoles,
-	techInUse 
-}) => {
+const ProjectCard = ({ project }) => {
+	const {
+		name,
+		description,
+		creator,
+		platforms,
+		status,
+	} = project;
+
 	const [profile, setProfile] = useState({});
 
 	const fetchGithubUser = async (username) => {
@@ -36,11 +38,11 @@ const ProjectCard = ({
 		<Box w="100%" position="relative" borderRadius="3xl" shadow="lg" padding={6}>
 			<Flex justifyContent="space-between" >
 				<Flex>
-					<Heading marginBottom={3}>{title}</Heading>
+					<Heading marginBottom={3}>{name}</Heading>
 					<Spacer w="2"/>
 					<Text alignSelf="center" color="gray">{creator.profileName}</Text>
 				</Flex>
-				<Box>
+				{/* <Box>
 					<Text
 						paddingBlock="0.5"
 						paddingInline="3"
@@ -51,12 +53,12 @@ const ProjectCard = ({
 					>
 							{difficulty}
 					</Text>
-				</Box>
+				</Box> */}
 			</Flex>
 			<Text color="gray" noOfLines={2}>{description}</Text>
 			<Flex justifyContent="space-between" paddingTop="3">
-				<Text>{techInUse.join(", ")}</Text>
-				<Text>{"Available Roles: " + availableRoles.join(", ")}</Text>
+				<Text>{platforms.join(", ")}</Text>
+				{/* <Text>{"Available Roles: " + availableRoles.join(", ")}</Text> */}
 			</Flex>
 		</Box>
 	);
