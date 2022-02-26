@@ -32,9 +32,9 @@ const TeamDashboard = ({ project }) => {
 						<Text>{project.description}</Text>
 					</Box>
 					<HStack>
-						{project.techUsed.forEach(t => (
-							<Flex padding={4} borderRadius="2xl" boxShadow="0px 4px 3px rgba(0,0,0,0.15)">
-								<Heading>{t.tech}</Heading>
+						{project.techUsed.map(t => (
+							<Flex paddingBlock="2" paddingInline="4" borderRadius="2xl" boxShadow="0px 1px 3px rgba(0,0,0,0.15)">
+								<Text>{t.tech}</Text>
 							</Flex>
 						))}
 					</HStack>
