@@ -48,12 +48,12 @@ const CreateTeam = () => {
     }));
   };
 
-  const handleIntegrationLinks = (name, value) => {
+  const handleIntegrationLinks = (name, link) => {
     const res = formData.selectedIntegrations.filter((item) => {
       return item.name === name;
     });
 
-    res[0]["value"] = value;
+    res[0]["link"] = link;
   };
 
   return (
