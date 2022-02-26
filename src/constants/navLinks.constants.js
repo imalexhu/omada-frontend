@@ -10,7 +10,7 @@ const navLinks = {
     },
     {
       name: "Profile",
-      to: "/userProfile",
+      to: "/profile",
     },
     {
       name: "TEMP-ONBOARDING",
