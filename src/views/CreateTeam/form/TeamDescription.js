@@ -1,34 +1,34 @@
 import React from "react";
+import FadeIn from "react-fade-in";
 
 import {
+    VStack,
     Box,
-    HStack,
     Textarea
 } from "@chakra-ui/react";
 
-const TeamDescription = () => {
+const TeamName = ({ handleFormData, values }) => {
     return (
-        <React.Fragment>
-            <Box
-                fontSize={{ base: "2xl", md: "3xl" }}
-                fontWeight={400}
-                color="gray.700"
-            >
-                Write a Short{" "}
-                <Box as="span" fontWeight={700} color="#0053CD">Project Description.</Box>
-            </Box>
-            <HStack w="100%" spacing={2}>
+        <FadeIn>
+            <VStack w="100%" spacing={8} alignItems="center">
+                <Box
+                    fontSize={{ base: "2xl", md: "3xl" }}
+                    fontWeight={400}
+                    color="gray.700"
+                >
+                    Write a Short{" "}
+                    <Box as="span" fontWeight={700} color="#0053CD">Project Description.</Box>
+                </Box>
                 <Textarea
-                    p={3}
+                    value={values["teamDescription"]}
                     placeholder="Team Description"
                     size="lg"
-                    bg="white"
-                    rounded="xl"
                     resize="none"
+                    onChange={handleFormData("teamDescription")}
                 />
-            </HStack>
-        </React.Fragment>
+            </VStack>
+        </FadeIn>
     );
 }
 
-export default TeamDescription;
+export default TeamName;
