@@ -6,6 +6,7 @@ import { CreateTeam } from "./views";
 import UserOnboarding from "./views/UserOnboarding/UserOnboarding";
 import UserProfile from "./views/userProfile";
 
+
 function App() {
   return (
     <Router>
@@ -21,3 +22,4 @@ function App() {
 }
 
 export default App;
+
