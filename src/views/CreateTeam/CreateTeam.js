@@ -1,37 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 
+import {
+    TeamName,
+    TeamDescription
+} from "./form";
 import {
     Flex,
     Container,
-    Box,
     VStack,
     HStack,
-    Input,
     IconButton
 } from "@chakra-ui/react";
-import { BsArrowRight } from "react-icons/bs";
+import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
 const CreateTeam = () => {
+    const [page, setPage] = useState(1);
+
+    const nextForm = () => setPage(page => page + 1);
+    const prevForm = () => {
+        if (page === 1) {
+            return;
+        }
+
+        setPage(page => page - 1)
+    };
+
     return (
         <React.Fragment>
             <Flex h="100vh" bg="#F5F5F6" alignItems="center">
-                <Container maxW="container.sm">
-                    <VStack spacing={5} mb={24}>
-                        <Box
-                            fontSize={{ base: "4xl", md: "5xl" }}
-                            fontWeight={400}
-                            color="gray.700"
-                        >
-                            Create a{" "}
-                            <Box as="span" fontWeight={700} color="#0053CD">Team.</Box>
-                        </Box>
-                        <HStack w="100%" spacing={2}>
-                            <Input placeholder='Team Name' size='lg' bg="white" rounded="full" />
+                <Container maxW="container.md">
+                    <VStack h="10vh" spacing={6} mb={8}>
+                        {page === 1 && <TeamName page={page} setPage={setPage} />}
+                        {page === 2 && <TeamDescription page={page} setPage={setPage} />}
+
+                        <HStack pt={6} spacing={8}>
                             <IconButton
                                 colorScheme="messenger"
-                                aria-label="Create a Team"
+                                aria-label="Previous Form"
                                 size="lg"
                                 rounded="full"
+                                onClick={prevForm}
+                                icon={<BsArrowLeft size={22} />}
+                            />
+                            <IconButton
+                                colorScheme="messenger"
+                                aria-label="Next Form"
+                                size="lg"
+                                rounded="full"
+                                onClick={nextForm}
                                 icon={<BsArrowRight size={22} />}
                             />
                         </HStack>
