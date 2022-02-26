@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={null} />
-        {/* <Route path='/createteam' element={<CreateTeam />} /> */}
+        <Route path='/createteam' element={<CreateTeam />} />
         <Route path='/profile' element={<UserProfile />} />
       </Routes>
     </Router>
