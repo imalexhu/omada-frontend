@@ -12,6 +12,10 @@ import {
 } from "@chakra-ui/react"
 
 import UserImage from "./UserImage"
+import axios from "axios";
+
+const serverURL = "localhost:3000/";
+const bio = 'Arthur C Clarke said "Any sufficiently advanced technology is indistinguishable from magic" and that\'s how I feel about the technology I work with. I love machine learning. I am always looking for new projects and challenges to help me explore the field and grow in what I can do. I am fascinated by artificial intelligence and its applications that will enable so many people to reach their full potential.';
 
 const users = [
   {
@@ -116,72 +120,47 @@ const users = [
   },
 ]
 
-const UserProfile = (props) => {
-  const [username] = useState(users[props.user].username)
-  const [image, setImage] = useState("")
-  const [career] = useState(users[props.user].career)
-  const [company] = useState(users[props.user].company)
-  const [currentProjectsCreated] = useState(
-    users[props.user].currentProjectsCreated
-  )
-  const [projectHistory, setProjectHistory] = useState(
-    users[props.user].projectHistory
-  )
-  const [currentProjectsInvolved] = useState(
-    users[props.user].currentProjectsInvolved
-  )
-  const [bio] = useState(users[props.user].bio)
-  const [roles] = useState(users[props.user].roles)
+const UserProfile = ({ user }) => {
+  const [image, setImage] = useState("");
+  const [projects, setProjects] = useState([]);
+  const githubId = user.platformAccounts.find(pa => pa.platform == "Github");
 
-  const fetchUserImage = async (user) => {
-    const url = "https://api.github.com/users/" + user.githubId
-    const response = await fetch(url)
-    const data = await response.json()
-    setImage(data.avatar_url)
-
-    return data.avatar_url
+  const fetchUserImage = async () => {
+    const response = axios.get("https://api.github.com/users/" + githubId);
+    setImage(response.data)
+    return response.data.avatar_url
   }
-
-  const fetchGithubProject = async (user) => {
-    const url = "https://api.github.com/users/" + user.githubId + "/repos"
-    const response = await fetch(url)
-    const data = await response.json()
-    setProjectHistory(data)
-
-    return
+  const getProjects = async () => {
+    let projects = [];
+    for (let id of user.currentProjectsInvolved) {
+      const response = await axios.get(serverURL+"get-project", {params: {id: id}})
+      projects = [...projects, response.data]
+    }
+    setProjects(projects);
   }
+  useEffect(()=>{
+    getProjects();
+    fetchUserImage();
+  });
 
-  useEffect(() => {
-    if (image === "") {
-      fetchUserImage(users[props.user])
-      fetchGithubProject(users[props.user])
-    }
-
-    if (projectHistory === "") {
-      fetchGithubProject(users[0])
-    }
-  }, [image, projectHistory])
   return (
     <Container mt={4}>
-      <UserImage pic={image} name={username} />
+      <UserImage pic={image} name={user.profileName} />
       <Center>
         <VStack>
-          <Heading>{username}</Heading>
-          <Text color='gray'>
-            {career} {" @ "} {company}
-          </Text>
-          <HStack>
+          <Heading>{user.profileName}</Heading>
+          {/* <HStack>
             {roles.map((role) => (
               <Tag colorScheme='blue' key={role}>
                 {role}
               </Tag>
             ))}
-          </HStack>
+          </HStack> */}
           <Text>{bio}</Text>
 
           <HStack>
             <Text>Project currently working: </Text>
-            {currentProjectsInvolved.map((currentProjectsInvolved) => (
+            {projects.filter(p=>p.status == "INPROGRESS").map((currentProjectsInvolved) => (
               <Tag colorScheme='green' key={currentProjectsInvolved}>
                 {currentProjectsInvolved}
               </Tag>
@@ -189,7 +168,7 @@ const UserProfile = (props) => {
           </HStack>
           <HStack>
             <Text>Project Created: </Text>
-            {currentProjectsCreated.map((currentProjectsCreated) => (
+            {user.currentProjectsCreated.map((currentProjectsCreated) => (
               <Tag colorScheme='purple' key={currentProjectsCreated}>
                 {currentProjectsCreated}
               </Tag>
@@ -197,10 +176,10 @@ const UserProfile = (props) => {
           </HStack>
           <VStack>
             <Text>Project History: </Text>
-            {projectHistory.map((projectHistory) => (
-              <Tag colorScheme='red' key={projectHistory.projectId}>
-                <Link href={projectHistory.html_url} isExternal>
-                  {projectHistory.name + " @ " + projectHistory.pushed_at}
+            {projects.filter(p=>p.status != "INPROGRESS").map((p) => (
+              <Tag colorScheme='red' key={p.projectId}>
+                <Link href={p.html_url} isExternal>
+                  {p.name + " @ " + p.pushed_at}
                 </Link>
               </Tag>
             ))}
