@@ -4,12 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Header } from "./components/Layout";
 import UserProfile from "./components/Users/UserProfile";
 import { CreateTeam } from "./views";
-<<<<<<< HEAD
 import Home from "./views/Home/Home";
-=======
 import Members from "./components/Users/Members";
 import CreateURL from "./views/CreateURL/CreateURL";
->>>>>>> cf56435afbfedf3869503f6c35ba7e458b3ae50f
 import UserOnboarding from "./views/UserOnboarding/UserOnboarding";
 
 function App() {
