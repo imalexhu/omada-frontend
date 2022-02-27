@@ -29,7 +29,6 @@ const CreateURL = () => {
 
   function copy() {
     var element = document.getElementById("url")
-    console.log(element.value)
     setUrlCopied(true)
   }
 
@@ -83,7 +82,7 @@ const CreateURL = () => {
 
             <SimpleGrid minChildWidth='120px' spacing='40px'>
               <Select id='role' placeholder='Select Role'>
-                <option value='2d43sdf'>Fontend Developer</option>
+                <option value='2d43sdf'>Frontend Developer</option>
                 <option value='affd2ffs'>Backend Developer</option>
                 <option value='22asdffd'>Data Engineer</option>
                 <option value='dsffdedc'>Data Scientist</option>

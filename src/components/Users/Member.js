@@ -24,7 +24,6 @@ import UserProfile from "./UserProfile"
 import {} from "@chakra-ui/react"
 const Member = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  //   console.log(props.member.username)
   const fetchUserImage = async (user) => {
     const url = "https://api.github.com/users/" + user.githubId
     const response = await fetch(url)
