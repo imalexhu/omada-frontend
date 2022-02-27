@@ -34,25 +34,31 @@ const GetStarted = () => {
                         gap={6}
                         flexDirection={{ base: "column", lg: "row" }}
                     >
-                        <GetStartedCard number={1} src="/assets/create.svg">
-                            <Box fontSize="xl">
-                                <Box as={NavLink} to="/createteam" fontWeight={600} color="#0053CD">Create a Team</Box>
-                                {" "}or{" "}
-                                <Box as={NavLink} to="/user_onboarding" fontWeight={600} color="#0053CD">Join One</Box> 
-                            </Box>
-                        </GetStartedCard>
-                        <GetStartedCard number={2} src="/assets/join.svg">
-                            <Box fontSize="xl">
-                                <Box as="span" fontWeight={600} color="#0053CD">Connect with Your Team</Box>
-                                {" "}via the{" "}
-                                <Box as="span" to="/user_onboarding" fontWeight={600} color="#0053CD">Integrated Platforms</Box> 
-                            </Box>
-                        </GetStartedCard>
-                        <GetStartedCard number={3} src="/assets/finished.svg">
-                            <Box fontSize="xl">
-                                <Box as="span" to="/createteam" fontWeight={600} color="#0053CD">Start Developing!</Box>
-                            </Box>
-                        </GetStartedCard>
+                        <FadeIn delay={100}>
+                            <GetStartedCard number={1} src="/assets/create.svg">
+                                <Box fontSize="xl">
+                                    <Box as={NavLink} to="/createteam" fontWeight={600} color="#0053CD">Create a Team</Box>
+                                    {" "}or{" "}
+                                    <Box as={NavLink} to="/user_onboarding" fontWeight={600} color="#0053CD">Join One</Box> 
+                                </Box>
+                            </GetStartedCard>
+                        </FadeIn>
+                        <FadeIn delay={200}>
+                            <GetStartedCard number={2} src="/assets/join.svg">
+                                <Box fontSize="xl">
+                                    <Box as="span" fontWeight={600} color="#0053CD">Connect with Your Team</Box>
+                                    {" "}via the{" "}
+                                    <Box as="span" to="/user_onboarding" fontWeight={600} color="#0053CD">Integrated Platforms</Box> 
+                                </Box>
+                            </GetStartedCard>
+                        </FadeIn>
+                        <FadeIn delay={300}>
+                            <GetStartedCard number={3} src="/assets/finished.svg">
+                                <Box fontSize="xl">
+                                    <Box as="span" to="/createteam" fontWeight={600} color="#0053CD">Start Developing!</Box>
+                                </Box>
+                            </GetStartedCard>
+                        </FadeIn>
                     </Flex>
                 </FadeIn>
             </VStack>
