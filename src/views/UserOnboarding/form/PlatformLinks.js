@@ -16,7 +16,10 @@ const PlatformLinks = () => {
             fontWeight={400}
             color="gray.700"
           >
-            Here are your invite links !
+            Here Are Your{" "}
+            <Box as="span" fontWeight={700} color="#0053CD">
+              Invite Links!
+            </Box>
           </Box>
           <Center>
             <HStack w="100%" spacing={6}>
