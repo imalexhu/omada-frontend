@@ -21,7 +21,6 @@ function App() {
         const requestUser = async () => {
             const request = await axios.get(serverURL + "get-user/chekambouris@gmail.com");
             setUser(request.data.data);
-            console.log(request.data.data);
         }
         requestUser();
     }, []);
