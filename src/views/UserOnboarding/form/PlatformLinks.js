@@ -19,7 +19,7 @@ const PlatformLinks = () => {
             Here are your invite links !
           </Box>
           <Center>
-            <HStack w="100%" spacing={2}>
+            <HStack w="100%" spacing={6}>
               {Object.keys(platforms).map(function (p, index) {
                 if (!platforms[p].inviteLink) return;
                 return (
@@ -27,7 +27,7 @@ const PlatformLinks = () => {
                     <DynamicIcon
                       iconName={platforms[p].icon}
                       size={40}
-                      color={"black"}
+                      color={"gray.600"}
                     />
                   </Link>
                 );
