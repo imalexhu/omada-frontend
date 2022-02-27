@@ -30,8 +30,8 @@ const GetStarted = () => {
                         <Box as="span" fontWeight={700} color="#0053CD">3 Steps</Box>
                     </Box>
                     <Flex
-                        spacing={8}
-                        gap={6}
+                        spacing={4}
+                        gap={{ base: 1, lg: 6 }}
                         flexDirection={{ base: "column", lg: "row" }}
                     >
                         <FadeIn delay={100}>

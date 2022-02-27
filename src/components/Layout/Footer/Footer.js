@@ -15,7 +15,13 @@ const Footer = () => {
     return (
         <Box w="100%" bg="gray.200" position="absolute">
 			<Container maxW='container.xl'>
-				<Flex h="15rem" alignItems='center' justifyContent='space-between'>
+				<Flex
+                    h="auto"
+                    alignItems='center'
+                    justifyContent='space-between'
+                    py={{ base: 16, lg: 10 }}
+                    flexDirection={{ base: "column", lg: "row" }}
+                >
                     <Box
                         as={NavLink}
                         to="/"
