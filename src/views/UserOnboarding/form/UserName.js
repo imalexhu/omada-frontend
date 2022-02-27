@@ -14,12 +14,12 @@ const UserName = ({ handleFormData, values }) => {
         >
           What's Your{" "}
           <Box as="span" fontWeight={700} color="#0053CD">
-            Team Name?
+            User Name?
           </Box>
         </Box>
         <Input
           value={values["userName"]}
-          placeholder="Team Name"
+          placeholder="User Name"
           size="lg"
           onChange={handleFormData("userName")}
         />

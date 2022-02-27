@@ -20,7 +20,7 @@ import {
 } from "@chakra-ui/react";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 
-const maxPage = 4;
+const maxPage = 3;
 
 const UserOnboarding = () => {
   const [page, setPage] = useState(1);
@@ -72,9 +72,9 @@ const UserOnboarding = () => {
           )}
           {page === 2 && <ProfilePicture />}
           {page === 3 && <PlatformLinks />}
-          {page === 4 && (
+          {/* {page === 4 && (
             <Email handleFormData={handleInputData} values={formData} />
-          )}
+          )} */}
 
           <VStack transition="0.1s ease-in">
             <HStack
