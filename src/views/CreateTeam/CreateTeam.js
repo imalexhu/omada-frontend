@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   TeamName,
@@ -18,8 +18,12 @@ import {
 } from "@chakra-ui/react";
 
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
-const CreateTeam = () => {
+const serverURL = `http://localhost:5000/`
+
+const CreateTeam = ({ user }) => {
   const [page, setPage] = useState(1);
   const [formData, setFormData] = useState({
     teamName: "",
@@ -55,6 +59,26 @@ const CreateTeam = () => {
 
     res[0]["link"] = link;
   };
+
+  const submit = () => {
+    const project = {
+      name: formData.teamName,
+      description: formData.teamDescription,
+      creator: user._id,
+      platforms: formData.selectedIntegrations.map(si => ({
+        platform: si.name,
+        url: si.link,
+      })),
+      status: "INPROGRESS", // by default the user probs wants an active project
+      participants: [],
+    }
+    const uploadData = async () => {
+      // Uncomment this code when you want to test upload logic, but to prevent polution of data I'm disabling it
+      // await axios.post(serverURL + "/create-project/" + user._id, project);
+    }
+    uploadData();
+    return project;
+  }
 
   return (
     <React.Fragment>
@@ -108,9 +132,11 @@ const CreateTeam = () => {
                 />
               )}
               {page === 5 && (
-                <Button colorScheme="messenger" size="lg" rounded="full">
-                  Get Started
-                </Button>
+                <Link to="/teamview" state={submit()}>
+                  <Button colorScheme="messenger" size="lg" rounded="full">
+                    Get Started
+                  </Button>
+                </Link>
               )}
             </HStack>
 
