@@ -46,7 +46,7 @@ const ParticipantCard = ({ participant }) => {
           <ModalHeader>Profile</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <UserProfile user={participant.id} />
+            <UserProfile user={participant.id - 1} />
           </ModalBody>
 
           <ModalFooter>
